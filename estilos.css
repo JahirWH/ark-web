@@ -1,0 +1,13 @@
+#seccion1{
+	width: 100%/3;
+	background-color: blue;
+	height: 300px;
+}
+#seccion2{
+	width: 100%/3;
+	background-color: green;
+}
+#seccion3{
+	width: 100%/3;
+	background-color: red;
+}
