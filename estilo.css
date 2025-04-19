@@ -1,0 +1,221 @@
+
+/* Estilos generales */
+body {
+    background-color: black;
+    color: #4ade80; /* green-400 */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.header-nav {
+    display: flex;
+    gap: 1rem;
+}
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: auto;
+    display: flex;
+    gap: 1rem;
+    color: whitesmoke;
+}
+.nav-list a {
+    text-decoration: none;
+    color: #4ade80; /* green-400 */
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+}
+.header-level {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.level-text {
+    font-size: 1.125rem;
+    text-align: center;
+}
+
+.level-button {
+    background-color: #15803d; /* green-700 */
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+}
+
+.level-button:hover {
+    background-color: #16a34a; /* green-600 */
+}
+
+/* Contenido principal */
+.main-content {
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    padding: 1rem;
+}
+
+/* Paneles */
+.left-panel, .right-panel {
+    width: 30%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.right-panel {
+    width: 20%;
+    padding: 5px;
+}
+
+.center-panel {
+    width: 47%;
+    height: 90vh;
+    padding: 5px;
+    margin: 10px;
+    overflow-x: scroll;
+}
+
+.panel-title {
+    font-size: 1.25rem;
+    background-color: rgba(55, 124, 34, 0.493);
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.img_container {
+    width: 100%;
+    margin: auto;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.panel-description {
+    font-size: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+/* Panel izquierdo */
+.avatar-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.skills-title {
+    font-size: 1.125rem;
+    width: 100%;
+    height: auto;
+    border: 2px dotted black;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+}
+
+.skills-list {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin: 0 auto;
+    text-decoration: none;
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-list li {
+    text-align: left;
+    margin: 10px 0;
+    width: 100%;
+    padding:  0.5rem 0;
+    height: fit-content;
+    border: 1px dotted white;
+    margin-bottom: 0.25rem;
+}
+
+/* Panel central */
+.chart-container {
+    max-width:100%;
+    height: fit-content;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.recent-project-title {
+    background-color: #166534; /* green-900 */
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.project-list {
+    list-style-type: disc;
+    list-style-position: inside;
+    height: auto;
+    padding-left: 0;
+}
+
+.project-list li {
+    padding: 0.5rem;
+}
+
+/* Panel derecho */
+.panel-image {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.project-item {
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    background-color: #15803d; /* green-700 */
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.progress-fill {
+    background-color: #4ade80; /* green-400 */
+    height: 100%;
+    border-radius: 0.25rem;
+    width: 8.66%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .left-panel, .right-panel {
+        width: 100%;
+    }
+}

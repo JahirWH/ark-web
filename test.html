@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 p-6 font-sans">
+
+  <!-- Botón para alternar secciones -->
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold">📂 Proyectos</h2>
+    <button onclick="toggleSection()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition">
+      Cambiar vista
+    </button>
+  </div>
+
+  <!-- Tabla 1: Proyectos activos -->
+  <div id="tabla1" class="grid gap-4">
+
+    <div class="bg-gray-100 p-4 rounded shadow">
+      <p class="font-semibold">🔧 ISo_py - Etapa: 1</p>
+      <div class="w-full bg-gray-300 h-2 rounded mt-2">
+        <div class="bg-blue-600 h-2 rounded" style="width: 60%;"></div>
+      </div>
+    </div>
+
+    <div class="bg-gray-100 p-4 rounded shadow">
+      <p class="font-semibold">💻 Chill Web - Etapa: 1</p>
+      <div class="w-full bg-gray-300 h-2 rounded mt-2">
+        <div class="bg-green-500 h-2 rounded" style="width: 40%;"></div>
+      </div>
+    </div>
+
+    <div class="bg-gray-100 p-4 rounded shadow">
+      <p class="font-semibold">🌐 Server Fri - Etapa: 1</p>
+      <div class="w-full bg-gray-300 h-2 rounded mt-2">
+        <div class="bg-yellow-500 h-2 rounded" style="width: 20%;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Tabla 2: Sección alterna (oculta por defecto) -->
+  <div id="tabla2" class="grid gap-4 hidden">
+    <div class="bg-indigo-100 p-4 rounded shadow">
+      <p class="font-semibold">📌 Learning Goals</p>
+      <ul class="list-disc list-inside text-sm mt-2 text-gray-700">
+        <li>Mejorar backend en FastAPI</li>
+        <li>Terminar app móvil con React Native</li>
+        <li>Integrar CI/CD</li>
+      </ul>
+    </div>
+
+    <div class="bg-indigo-100 p-4 rounded shadow">
+      <p class="font-semibold">🧠 Inspiración</p>
+      <p class="text-sm text-gray-700 mt-2">“Cada línea de código es un paso más hacia el futuro que sueñas.”</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleSection() {
+      const tabla1 = document.getElementById('tabla1');
+      const tabla2 = document.getElementById('tabla2');
+      tabla1.classList.toggle('hidden');
+      tabla2.classList.toggle('hidden');
+    }
+  </script>
+
+</body>
+</html>

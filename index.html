@@ -1,133 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ArkWeb RPG Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="estilo.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  </head>
-  <body class="bg-black text-green-400 min-h-screen flex flex-col">
-
+</head>
+<body>
     <!-- 🔺 Sección 1: Header -->
-    <header class="p-3  flex justify-between items-center">
-      <h1 class="text-2xl font-bold"> ArkWeb Home</h1>
-      <div class="flex items-center gap-4">
-        <p class="text-lg">Nivel: <span id="nivel">1</span></p>
-        <button onclick="subirNivel()" class="bg-green-700 hover:bg-green-600 px-3 py-1 rounded">
-          +XP
-        </button>
-      </div>
-    </header>
+    <!-- <header class="header">
+        <h1 class="header-title">ArkWeb Home</h1>
+        <nav class="header-nav">
+            <ul class="nav-list">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Proyectos</a></li>
+                <li><a href="#">Estadísticas</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        <div class="header-level">
+            
+        </div>
+    </header> -->
 
     <!-- ⚙️ Sección 2: Contenido principal -->
-    <main class="flex">
-      
-      <div class="w-[30%]  p-3 rounded-lg shadow">
-        <h2 class="text-xl font-bold mb-2">Nivel</h2>
-        <img src="img.jpg" alt="Stats" class="w-full h-80 object-cover rounded mb-4" />
-        <p class="text-lg w-full h-content border border-dotted border-black border-2 text-center mx-auto  " >HABILIDADES</p>
-        <ul class="list-disc list-inside mx-auto">
-            <li class="p-4">Horas de código: 4</li>
-            <li class="p-4">Horas de código: 4</li>
-            <li class="p-4">Horas de código: 4</li>
-   
-        </ul>
-      </div>
-
-      <div class="w-[40%] text-center  h-100  p-4 rounded-lg shadow">
-        <h2 class="text-xl font-bold mb-2">Grafica</h2>
-
-        <div  class="max-w-md mx-auto   mt-8  p-4 rounded-lg">
-            <!-- <h2 class="text-xl font-bold text-center mb-4">🛡️ Tech Radar</h2> -->
+    <main class="main-content">
+        <div class="left-panel">
+            <h2 onclick="subirNivel()" class="panel-title">LEVER UP: <span id="nivel">4</span></h2>
+          
+            <img src="avatar.jpg" alt="Stats" class="avatar-image" />
             
-            <canvas id="radarChart"></canvas>
-          </div>
-          
-          <script>
-            const ctx = document.getElementById('radarChart').getContext('2d');
-            new Chart(ctx, {
-              type: 'radar',
-              data: {
-                labels: ['Frontend', 'Backend', 'DevOps', 'Database', 'UI/UX'],
-                datasets: [{
-                  // Sin leyenda
-                  data: [80, 65, 50, 70, 90],
-                  backgroundColor: 'rgba(34,197,94,0.2)',
-                  borderColor: 'rgb(34,197,94)',
-                  pointBackgroundColor: 'rgb(34,197,94)',
-                  borderWidth: 2
-                }]
-              },
-              options: {
-                scales: {
-                  r: {
-                    // 🔕 Oculta los números de escala (10, 20, etc.)
-                    ticks: {
-                      display: false
-                    },
-                    // 🔕 Opcional: también podrías ocultar la cuadrícula si lo deseas
-                    grid: {
-                      color: '#374151'
-                    },
-                    angleLines: {
-                      color: '#4B5563'
-                    },
-                    pointLabels: {
-                      color: '#F3F4F6',
-                      font: { size: 14 }
-                    },
-                    suggestedMin: 0,
-                    suggestedMax: 100
-                  }
-                },
-                plugins: {
-                  // 🔕 Oculta la leyenda (texto "Nivel de dominio")
-                  legend: {
-                    display: false
-                  }
-                }
-              }
-            });
-          </script>
-          
-          
-        <ul class="list-disc list-inside">
-          <li>Documentar endpoints</li>
-        </ul>
-      </div>
+            <ul class="skills-list">
+                <li >Dayli Energy</li>
+                <li>Will power</li>
+                <li>Heald</li>
+                <li>Mood</li>
+            </ul>
+        </div>
 
-      <div class="w-[30%]  p-4 rounded-lg shadow">
-        <img src="img.jpg" alt="Stats" class="w-full h-50 object-cover rounded mb-4" />
-        <h2 class="text-xl font-bold mb-2"> Proyectos Activos</h2>
-        <p>ArkWeb RPG - Etapa: MVP</p>
-        <div class="bg-green-700 h-2 rounded mt-2">
-          <div class="bg-green-400 h-2 rounded w-2/3"></div>
+        <div class="center-panel">
+            <!-- <h2 class="panel-title">Grafica</h2> -->
+            <div class="chart-container">
+                <canvas id="radarChart"></canvas>
+                
+            </div>
+            <p style="text-align: right;opacity: 0.6;" > Grafica cambiante </p>
+            
+            <h2 style="margin-left: 20px;width: fit-content;background-color: rgb(63, 7, 63);">ArK-Web</h2>
+            <p class="panel-description"> Un proyecto de desarrollo web que busca crear una plataforma de gestión de proyectos y tareas.</p>
+            <img src="1.gif" alt="Stats" class="img_container" />
+            
         </div>
-        <p>ArkWeb RPG - Etapa: MVP</p>
-        <div class="bg-green-700 h-2 rounded mt-2">
-          <div class="bg-green-400 h-2 rounded w-2/3"></div>
-        </div>
-        <p>ArkWeb RPG - Etapa: MVP</p>
-        <div class="bg-green-700 h-2 rounded mt-2">
-          <div class="bg-green-400 h-2 rounded w-2/3"></div>
-        </div>
-      </div>
 
+        <div class="right-panel">
+            <p >Clima actual</p>
+            <img src="https://media.giphy.com/media/UByFQJYlKxprETlJ84/giphy.gif?cid=ecf05e475x7ql9pxrfxz957k9wsz6g3z4t15velkoaijh7vj&ep=v1_gifs_related&rid=giphy.gif&ct=g" alt="Stats" class="panel-image" />
+            <!-- <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnhxb25xbmt2aWpnOTJpaGZuc2FuOHM2eno5ZGR6djd3amJsYzZ2YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Uz4cDaGXPxeuY/giphy.gif" alt="Stats" class="panel-image" /> -->
+            <div class="temas" >
+                <p style="padding: 8px;margin:0;border-radius: 5px;background-color: rgba(48, 47, 46, 0.466);color: bisque;">Temas</p>
+                <div class="tema" style="background-color: rgba(48, 47, 46, 0.466);">
+                    <p style="cursor: pointer;padding: 8px;margin:0;border-radius: 5px;background-color: rgba(48, 47, 46, 0.466);color: bisque;">Selec...</p>
+            </div>
+
+
+
+            <div class="stats-container">
+              
+                
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">📂 Proyectos</h2>
+                    <button onclick="toggleSection()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition">
+                      Cambiar vista
+                    </button>
+                  </div>
+                
+                  <!-- Tabla 1: Proyectos activos -->
+                  <div id="tabla1" class="grid gap-4">
+                
+                    <div class="bg-gray-100 p-4 rounded shadow">
+                      <p class="font-semibold">🔧 ISo_py - Etapa: 1</p>
+                      <div class="w-full bg-gray-300 h-2 rounded mt-2">
+                        <div class="bg-blue-600 h-2 rounded" style="width: 60%;"></div>
+                      </div>
+                    </div>
+                
+                    <div class="bg-gray-100 p-4 rounded shadow">
+                      <p class="font-semibold">💻 Chill Web - Etapa: 1</p>
+                      <div class="w-full bg-gray-300 h-2 rounded mt-2">
+                        <div class="bg-green-500 h-2 rounded" style="width: 40%;"></div>
+                      </div>
+                    </div>
+                
+                    <div class="bg-gray-100 p-4 rounded shadow">
+                      <p class="font-semibold">🌐 Server Fri - Etapa: 1</p>
+                      <div class="w-full bg-gray-300 h-2 rounded mt-2">
+                        <div class="bg-yellow-500 h-2 rounded" style="width: 20%;"></div>
+                      </div>
+                    </div>
+                
+                  </div>
+                
+                  <!-- Tabla 2: Sección alterna (oculta por defecto) -->
+                  <div id="tabla2" class="grid gap-4 hidden">
+                    <div class="bg-indigo-100 p-4 rounded shadow">
+                      <p class="font-semibold">📌 Learning Goals</p>
+                      <ul class="list-disc list-inside text-sm mt-2 text-gray-700">
+                        <li>Mejorar backend en FastAPI</li>
+                        <li>Terminar app móvil con React Native</li>
+                        <li>Integrar CI/CD</li>
+                      </ul>
+                    </div>
+                
+                    <div class="bg-indigo-100 p-4 rounded shadow">
+                      <p class="font-semibold">🧠 Inspiración</p>
+                      <p class="text-sm text-gray-700 mt-2">“Cada línea de código es un paso más hacia el futuro que sueñas.”</p>
+                    </div>
+                  </div>
+                
+                  <script>
+                    function toggleSection() {
+                      const tabla1 = document.getElementById('tabla1');
+                      const tabla2 = document.getElementById('tabla2');
+                      tabla1.classList.toggle('hidden');
+                      tabla2.classList.toggle('hidden');
+                    }
+                  </script>
+                
+
+            
+        </div>
     </main>
 
-    <!-- 🏁 Sección 3: Footer o zona inferior -->
-    <footer class="p-6 bg-gray-900 text-center">
-      <p>🚀 Keep coding, keep leveling up!</p>
-    </footer>
-
     <script>
-      let nivel = 1
-      function subirNivel() {
-        nivel++
-        document.getElementById('nivel').textContent = nivel
-      }
+        let nivel = 1
+        function subirNivel() {
+            nivel++
+            document.getElementById('nivel').textContent = nivel
+        }
+
+        // Configuración del gráfico
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Frontend', 'Backend', 'DevOps', 'Database', 'UI/UX'],
+                datasets: [{
+                    data: [80, 65, 50, 70, 90],
+                    backgroundColor: 'rgba(34,197,94,0.2)',
+                    borderColor: 'rgb(34,197,94)',
+                    pointBackgroundColor: 'rgb(34,197,94)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            color: '#374151'
+                        },
+                        angleLines: {
+                            color: '#4B5563'
+                        },
+                        pointLabels: {
+                            color: '#F3F4F6',
+                            font: { size: 14 }
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
     </script>
-  </body>
+</body>
 </html>
