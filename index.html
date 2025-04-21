@@ -10,37 +10,62 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- 🔺 Sección 1: Header -->
-    <!-- <header class="header">
-        <h1 class="header-title">ArkWeb Home</h1>
-        <nav class="header-nav">
-            <ul class="nav-list">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Proyectos</a></li>
-                <li><a href="#">Estadísticas</a></li>
-                <li><a href="#">Configuración</a></li>
-            </ul>
-        <div class="header-level">
-            
-        </div>
-    </header> -->
+  
 
-    <!-- ⚙️ Sección 2: Contenido principal -->
+    <!-- ⚙️ Sección : Contenido principal -->
     <main class="main-content">
         <div class="left-panel">
-            <h2 onclick="subirNivel()" class="panel-title">LEVER UP: <span id="nivel">4</span></h2>
+            <h2 onclick="subirNivel()" style="cursor:pointer;" class="panel-title">LEVER UP: <span id="nivel">4</span></h2>
           
             <img src="avatar.jpg" alt="Stats" class="avatar-image" />
             
             <ul class="skills-list">
-                <li >Dayli Energy</li>
-                <li>Will power</li>
-                <li>Heald</li>
-                <li>Mood</li>
+                <li onclick="redi1()" >About</li>
+                <li onclick="redi2()">web - Portafolio</li>
+                <li onclick="redi3()">Reciente: Game simpson</li>
+                <li onclick="redi4()">old web</li>
             </ul>
-        </div>
+            <script>
+                function redi1() {
+                  var url = document.getElementById('panel');
+                  var url2 = document.getElementById('panel_oculto');
+                  if (url2.style.display === 'block') {
+                  url2.style.display = 'none';
+                  url.style.display = 'block';
+                  } else {
+                  url.style.display = 'none';
+                  url2.style.display = 'block';
+                  }
+                }
+                function redi2() {
+                    window.open('https://www.portafolio.icu', '_blank');
+                }
+                function redi3() {
+                    window.open('#', '_blank');
+                     }
+                function redi4() {
+                    window.open('old/index.html', '_blank');
+                }
+            </script>
+                
+                        </div>
 
-        <div class="center-panel">
+        <div id="panel_oculto" class="center-panel">
+          <h2 class="panel-title">About</h2>
+          <div class="bg-black text-white py-16 px-6 md:px-20 rounded-lg border-t-4 border-green-500 shadow-[0_0_20px_#00ff8877]">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-green-400">Sobre esta pagina</h2>
+            <p class="text-lg leading-relaxed text-gray-200 max-w-3xl">
+              Este sitio web fue creado manualmente usando <span class="text-white font-semibold">HTML, Tailwind CSS</span> y un toque de <span class="text-white font-semibold">JavaScript</span>.
+              Todo comenzó con una imagen impactante que encontré en Pinterest — una chispa de inspiración que me llevó a reconstruir el concepto desde cero.  
+              Lo que ves aquí es un diseño completamente personalizado, reinventado para ajustarse a mi propia visión, estética y objetivos de funcionalidad.
+            </p>
+            <p class="mt-4 text-md text-green-300 italic">
+              Código limpio, visión personal y elegancia oscura — todo en un mismo lugar.
+            </p>
+          </div>
+          </div>
+          
+        <div id="panel" class=" center-panel">
             <!-- <h2 class="panel-title">Grafica</h2> -->
             <div class="chart-container">
                 <canvas id="radarChart"></canvas>
@@ -48,20 +73,53 @@
             </div>
             <p style="text-align: right;opacity: 0.6;" > Grafica cambiante </p>
             
-            <h2 style="margin-left: 20px;width: fit-content;background-color: rgb(63, 7, 63);">ArK-Web</h2>
-            <p class="panel-description"> Un proyecto de desarrollo web que busca crear una plataforma de gestión de proyectos y tareas.</p>
-            <img src="1.gif" alt="Stats" class="img_container" />
-            
+
+            <div class="intro">
+                <p class="panel-description">#Un proyecto de desarrollo web que busca crear una plataforma de gestión de proyectos y tareas.</p>
+            </div>
+            <script>
+                function das() {
+                    window.open('das.html', '_blank');
+                }
+                </script>
+
+            <div onclick="das()" class="previews">
+              <img src="1.gif" >
+              <p >go themes</p>
+
+            </div>
+            <div class="previews">
+              <img src="2.gif" >
+              <p >3D SImulator </p>
+              </div>
+
+              <div class="previews">
+                <img src="3.gif" >
+                <p >Chill web </p>
+                </div>
+
         </div>
 
         <div class="right-panel">
-            <p >Clima actual</p>
-            <img src="https://media.giphy.com/media/UByFQJYlKxprETlJ84/giphy.gif?cid=ecf05e475x7ql9pxrfxz957k9wsz6g3z4t15velkoaijh7vj&ep=v1_gifs_related&rid=giphy.gif&ct=g" alt="Stats" class="panel-image" />
+            <!-- <p >Clima actual</p> -->
+            <div class="relative">
+                <img src="https://media.giphy.com/media/UByFQJYlKxprETlJ84/giphy.gif?cid=ecf05e475x7ql9pxrfxz957k9wsz6g3z4t15velkoaijh7vj&ep=v1_gifs_related&rid=giphy.gif&ct=g" alt="Stats" class="panel-image" />
+                <p class="p-static" id="hora-actual">Cargando hora...</p>
+             </div>
+            <script>
+              // Usando WorldTimeAPI
+              fetch('https://worldtimeapi.org/api/ip')
+                .then(response => response.json())
+                .then(data => {
+                  const hora = new Date(data.datetime);
+                  document.getElementById('hora-actual').textContent = 
+                    hora.toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' });
+                });
+            </script>
+            
             <!-- <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnhxb25xbmt2aWpnOTJpaGZuc2FuOHM2eno5ZGR6djd3amJsYzZ2YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Uz4cDaGXPxeuY/giphy.gif" alt="Stats" class="panel-image" /> -->
-            <div class="temas" >
-                <p style="padding: 8px;margin:0;border-radius: 5px;background-color: rgba(48, 47, 46, 0.466);color: bisque;">Temas</p>
-                <div class="tema" style="background-color: rgba(48, 47, 46, 0.466);">
-                    <p style="cursor: pointer;padding: 8px;margin:0;border-radius: 5px;background-color: rgba(48, 47, 46, 0.466);color: bisque;">Selec...</p>
+            <div  >
+                <p class="temas" onclick="buscaproject()" style="cursor: pointer;">Temas</p>
             </div>
 
 
@@ -69,63 +127,98 @@
             <div class="stats-container">
               
                 
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-2xl font-bold">📂 Proyectos</h2>
-                    <button onclick="toggleSection()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition">
-                      Cambiar vista
-                    </button>
-                  </div>
+                <div class="flex justify-between items-center m-1  ">
+                  <h2 onclick="showSection('tabla1')" class="tab-button bg-gray-900 p-3 font-bold  m-1 w-full hover:cursor-pointer  text-white   rounded transition active:bg-pink-500" >📂 Actuales</h2>
+                  <h2 onclick="showSection('tabla2')" class="tab-button bg-green-900 p-3 font-bold  m-1  w-full hover:cursor-pointer  text-white   rounded transition" >ideas</h2>
+                </div>
                 
                   <!-- Tabla 1: Proyectos activos -->
-                  <div id="tabla1" class="grid gap-4">
+                  <div id="tabla1" class="content-section grid gap-4">
                 
-                    <div class="bg-gray-100 p-4 rounded shadow">
-                      <p class="font-semibold">🔧 ISo_py - Etapa: 1</p>
-                      <div class="w-full bg-gray-300 h-2 rounded mt-2">
-                        <div class="bg-blue-600 h-2 rounded" style="width: 60%;"></div>
+                  
+                    <div class="w-full bg-blue-900/10 rounded backdrop-blur-sm p-2 max-w-xs mx-auto text-sm text-gray-200 font-mono">
+                      <h3 class="mb-2 text-lg font-bold text-white">📊 </h3>
+                      <div class="space-y-2">
+                        <div class="flex justify-between">
+                          <span>Portafolio</span>
+                          <span>36</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-gray-700 rounded">
+                          <div class="h-full bg-pink-500 rounded" style="width: 36%;"></div>
+                        </div>
+                    
+                        <div class="flex justify-between">
+                          <span>ark web</span>
+                          <span>107</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-gray-700 rounded">
+                          <div class="h-full bg-pink-500 rounded" style="width: 40%;"></div>
+                        </div>
+                    
+                        <div class="flex justify-between">
+                          <span>Scan Date</span>
+                          <span>76</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-gray-700 rounded">
+                          <div class="h-full bg-pink-500 rounded" style="width: 76%;"></div>
+                        </div>
+                    
+                        <div class="flex justify-between">
+                          <span>Chill web</span>
+                          <span>73</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-gray-700 rounded">
+                          <div class="h-full bg-pink-500 rounded" style="width: 13%;"></div>
+                        </div>
+                    
+                        <div class="flex justify-between">
+                          <span>Game yellow 3D</span>
+                          <span>112</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-gray-700 rounded">
+                          <div class="h-full bg-pink-500 rounded" style="width: 40%;"></div>
+                        </div>
                       </div>
+                    
+                      <div class="mt-4 text-right text-gray-400 text-xs">Total: 464</div>
                     </div>
-                
-                    <div class="bg-gray-100 p-4 rounded shadow">
-                      <p class="font-semibold">💻 Chill Web - Etapa: 1</p>
-                      <div class="w-full bg-gray-300 h-2 rounded mt-2">
-                        <div class="bg-green-500 h-2 rounded" style="width: 40%;"></div>
-                      </div>
-                    </div>
-                
-                    <div class="bg-gray-100 p-4 rounded shadow">
-                      <p class="font-semibold">🌐 Server Fri - Etapa: 1</p>
-                      <div class="w-full bg-gray-300 h-2 rounded mt-2">
-                        <div class="bg-yellow-500 h-2 rounded" style="width: 20%;"></div>
-                      </div>
-                    </div>
-                
+                    
                   </div>
                 
                   <!-- Tabla 2: Sección alterna (oculta por defecto) -->
-                  <div id="tabla2" class="grid gap-4 hidden">
-                    <div class="bg-indigo-100 p-4 rounded shadow">
-                      <p class="font-semibold">📌 Learning Goals</p>
-                      <ul class="list-disc list-inside text-sm mt-2 text-gray-700">
-                        <li>Mejorar backend en FastAPI</li>
-                        <li>Terminar app móvil con React Native</li>
-                        <li>Integrar CI/CD</li>
+                  <div id="tabla2" class="content-section grid mt-0 gap-4 hidden">
+                    <div class="bg-green-900 p-4 rounded shadow">
+                      <p class="font-semibold">📌 Ideas Fijas</p>
+                      <ul class="list-disc list-inside text-sm  text-yellow-100">
+                        <li>Manejo 3D en patio simulado con javascript </li>
+                        <li>Terminar Rebol-ia con React Native</li>
+                        <li>Terminar visor de rendimiento remoto para serverlinux</li>
                       </ul>
                     </div>
                 
-                    <div class="bg-indigo-100 p-4 rounded shadow">
+                    <div class="bg-blue-900 p-4 rounded shadow">
                       <p class="font-semibold">🧠 Inspiración</p>
-                      <p class="text-sm text-gray-700 mt-2">“Cada línea de código es un paso más hacia el futuro que sueñas.”</p>
+                      <p class="text-sm text-yellow-100 mt-2">“Cada línea de código es un paso más hacia el futuro que sueñas.”</p>
                     </div>
                   </div>
                 
                   <script>
-                    function toggleSection() {
-                      const tabla1 = document.getElementById('tabla1');
-                      const tabla2 = document.getElementById('tabla2');
-                      tabla1.classList.toggle('hidden');
-                      tabla2.classList.toggle('hidden');
-                    }
+                   function showSection(sectionId) {
+  // Oculta todas las secciones y quita 'active' de los botones
+  document.querySelectorAll('.content-section').forEach(section => {
+    section.classList.add('hidden');
+  });
+  document.querySelectorAll('.tab-button').forEach(button => {
+    button.classList.remove('active');
+  });
+  
+  // Muestra la sección seleccionada y marca el botón como activo
+  const selectedSection = document.getElementById(sectionId);
+  if (selectedSection) {
+    selectedSection.classList.remove('hidden');
+    document.querySelector(`button[onclick="showSection('${sectionId}')"]`).classList.add('active');
+  }
+}
                   </script>
                 
 
