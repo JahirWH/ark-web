@@ -14,12 +14,12 @@ Portafolio personal con estilo RPG interactivo donde los visitantes pueden explo
 
 ## 🛠 Tecnologías
 
-[![Tech Stack](https://skillicons.dev/icons?i=html,tailwind,js,react,git)](https://skillicons.dev)
+<!-- [![Tech Stack](https://skillicons.dev/icons?i=html,tailwind,js,react,git)](https://skillicons.dev) -->
 
 - **Frontend**: HTML5, Tailwind CSS, JavaScript
 - **Herramientas**: Git, Vite, Figma
 
-## 🎮 Cómo Jugar/Usar
+##  Cómo Jugar/Usar
 
 1. Explora las diferentes secciones
 2. Interactúa con los elementos para ganar XP
