@@ -1,6 +1,7 @@
 # ArkWeb -  RPG Interactivo
 
-![Preview](https://media.giphy.com/media/UByFQJYlKxprETlJ84/giphy.gif)
+![Preview](banner.webp)
+
 
 Portafolio personal con estilo RPG interactivo donde los visitantes pueden explorar mis proyectos como si fuera un juego.
 
