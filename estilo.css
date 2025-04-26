@@ -322,4 +322,8 @@ body {
     .left-panel, .right-panel {
         width: 100%;
     }
+    .center-panel {
+        width: 90%;
+        margin: auto;
+    }
 }
