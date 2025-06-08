@@ -12,6 +12,56 @@
 <body>
   
 
+  <!-- Modal de login mejorado -->
+  <div style="display: none;" id="modal" class="modal hidden" >
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+      <h2>Bienvenido</h2>
+      <form>
+        <div style="display: grid;">
+          <label for="username">Usuario</label>
+          <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required />
+        </div>
+        <div style="display: grid;">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required />
+        </div>
+        <button class="btn-modal" type="submit">Ingresar</button>
+        <p>Si no tiene cuenta puedes cerarte una qui <button style="color:rgb(163, 172, 31);!important">Crear cuenta</button></p>
+        
+      </form>
+      
+    </div>
+  </div>
+
+<script>
+  
+    // Mostrar el modal de login al cargar la página
+    // window.onload = function() {
+    //     document.getElementById('modal').style.display = 'block';
+    // };
+
+    // Cerrar el modal al hacer clic fuera de él
+    window.onclick = function(event) {
+        var modal = document.getElementById('modal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+    // Cerrar el modal al hacer clic en la "X"
+    document.querySelector('.close').onclick = function() {
+        document.getElementById('modal').style.display = 'none';
+    };
+    // Función para buscar proyectos
+    function buscaproject() {
+        const searchTerm = prompt("Ingrese el nombre del proyecto:");
+        if (searchTerm) {
+            window.open(`https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+        }
+    }
+</script>
+
+
     <!-- ⚙️ Sección : Contenido principal -->
     <main class="main-content">
         <div class="left-panel">
@@ -26,14 +76,12 @@
             </ul>
 
                 <div class="relative">
-              <img src="2.gif" alt="Stats" class="panel-image" />
-              <p class="p-static" id="hora-actual">Cargando hora...</p>
+              <img src="bg1.jpg" alt="Stats" class="panel-image" />
+              <p class="p-static" >Contenido</p>
+              <p class="p-static" >Contenido</p>
                 </div>
 
-                <div class="contenedor_subtemas">
-                <div>Contenedor 1</div>
-                <div>Contenedor 2</div>
-                </div>
+               
 
             <script>
                 function redi1() {
@@ -107,7 +155,7 @@
                 </div>
 
                <div class="previews">
-                <img src="3.gif" >
+                <img src="car.jpg" >
                 <p >Racing 2D </p>
                 </div>
         </div>
@@ -131,8 +179,15 @@
             
             <!-- <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnhxb25xbmt2aWpnOTJpaGZuc2FuOHM2eno5ZGR6djd3amJsYzZ2YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Uz4cDaGXPxeuY/giphy.gif" alt="Stats" class="panel-image" /> -->
             <div  >
-                <p class="temas" onclick="buscaproject()" style="cursor: pointer;">Temas</p>
+                <p class="temas" onclick="modallogin()" style="cursor: pointer;">Modo Edit</p>
             </div>
+
+            <script>
+              function modallogin(){
+                modal = document.getElementById("modal");
+                modal.style.display = "block";
+              }
+            </script>
 
 
 
